@@ -28,7 +28,8 @@ module.exports = React.createClass({
 
 var styles = React.StyleSheet.create({
   navbar: {
-    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderColor: '#cecece',
     borderBottomWidth: 1,
     paddingVertical: 10
@@ -36,7 +37,11 @@ var styles = React.StyleSheet.create({
 
   iconWrapper: {
     position: 'absolute',
-    left: 10
+    left: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   icon: {

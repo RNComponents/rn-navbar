@@ -1,7 +1,8 @@
 {
   "name": "rn-navbar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple NavBar component for react-native",
   "keywords": ["react-native", "navbar", "component"],
-  "author": "fantasyshao"
+  "author": "fantasyshao",
+  "license": "MIT"
 }
