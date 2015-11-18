@@ -16,13 +16,13 @@ module.exports = React.createClass({
 
   render () {
     return (
-      <View style={styles.navbar}>
+      <View style={[styles.navbar, {backgroundColor:this.props.barTintColor || 'white'}]}>
         <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
-          <View style={styles.icon} />
+          <View style={[styles.icon, {borderColor:this.props.tintColor || '#777'}]} />
         </TouchableOpacity>
-        <Text style={styles.title}>{this.props.title}</Text>
+        <Text style={[styles.title, {color:this.props.titleTextColor || '#333'}]}>{this.props.title}</Text>
       </View>
-    )
+    );
   }
 });
 
@@ -49,13 +49,11 @@ var styles = React.StyleSheet.create({
     height: 14,
     borderLeftWidth: 2,
     borderBottomWidth: 2,
-    borderColor: '#777',
     transform: [{rotate:'45deg'}]
   },
 
   title: {
     fontSize: 18,
-    color: '#666666',
     textAlign: 'center'
   }
 });
