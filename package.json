@@ -1,8 +1,16 @@
 {
   "name": "rn-navbar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple NavBar component for react-native",
-  "keywords": ["react-native", "navbar", "component"],
-  "author": "fantasyshao",
+  "keywords": ["react-native", "navbar", "react-component", "ios"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RNComponents/rn-navbar"
+  },
+  "author": {
+    "name": "Fantasy Shao",
+    "url": "http://fantasy.codes",
+    "email": "fantasyshao@icloud.com"
+  },
   "license": "MIT"
 }

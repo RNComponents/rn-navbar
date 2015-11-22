@@ -11,10 +11,15 @@ npm i rn-navbar --save
 
 ## Usage
 
-```
+```js
+var React = require('react-native');
 var NavBar = require('rn-navbar');
 
-<NavBar title="RNComponents" backFunc={()=>{this.props.navigator.pop()}} />
+module.exports = React.createClass({
+  render () {
+    return (<NavBar title="RNComponents" backFunc={()=>{this.props.navigator.pop()}} />);
+  }
+});
 ```
 
 ## Props
