@@ -1,7 +1,7 @@
 rn-navbar
 ---
 
-Simple navbar component for react-native.
+A NavBar component for react-native.
 
 ## Install
 
@@ -29,6 +29,7 @@ module.exports = React.createClass({
 - tintColor: color of the button of the navbar
 - titleTextColor: title color of the navbar
 - barTintColor: background color of the navbar
+- statusbarPadding: add a padding for statusbar or not
 
 ## License
 

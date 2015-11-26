@@ -1,7 +1,7 @@
 {
   "name": "rn-navbar",
-  "version": "0.0.4",
-  "description": "Simple NavBar component for react-native",
+  "version": "0.1.0",
+  "description": "NavBar component for react-native",
   "keywords": ["react-native", "navbar", "react-component", "ios"],
   "repository": {
     "type": "git",

@@ -4,23 +4,46 @@ var React = require('react-native');
 var {
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  PropTypes
 } = React;
 
 module.exports = React.createClass({
 
+  propTypes: {
+    title: PropTypes.string,
+    backFunc: PropTypes.func,
+    tintColor: PropTypes.string,
+    titleTextColor: PropTypes.string,
+    barTintColor: PropTypes.string,
+    statusbarPadding: PropTypes.bool
+  },
+
+  getDefaultProps () {
+    return {
+      title: '标题',
+      backFunc () { console.log('press back'); },
+      tintColor: '#777',
+      titleTextColor: '#333',
+      barTintColor: 'white',
+      statusbarPadding: false
+    }
+  },
+
   componentWillMount () {
-    if (!this.props.title) console.log('Component should pass `title` property');
-    if (!this.props.backFunc) console.log('Component should pass `backFunc` property');
+
   },
 
   render () {
     return (
-      <View style={[styles.navbar, {backgroundColor:this.props.barTintColor || 'white'}]}>
+      <View style={
+          [styles.navbar,
+            {backgroundColor:this.props.barTintColor},
+            this.props.statusbarPadding ? {paddingTop: 30}:{}]}>
         <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
-          <View style={[styles.icon, {borderColor:this.props.tintColor || '#777'}]} />
+          <View style={[styles.icon, {borderColor:this.props.tintColor}]} />
         </TouchableOpacity>
-        <Text style={[styles.title, {color:this.props.titleTextColor || '#333'}]}>{this.props.title}</Text>
+        <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
       </View>
     );
   }
