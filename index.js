@@ -30,10 +30,6 @@ module.exports = React.createClass({
     }
   },
 
-  componentWillMount () {
-
-  },
-
   render () {
     return (
       <View style={
@@ -53,18 +49,19 @@ var styles = React.StyleSheet.create({
   navbar: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: '#cecece',
-    borderBottomWidth: 1,
-    paddingVertical: 10
+    borderColor: '#d4d4d4',
+    borderBottomWidth: 0.5,
+    height: 70
   },
 
   iconWrapper: {
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
     position: 'absolute',
     left: 10,
-    width: 20,
-    height: 20,
-    justifyContent: 'center',
-    alignItems: 'center'
+    bottom: 8
   },
 
   icon: {
@@ -77,6 +74,8 @@ var styles = React.StyleSheet.create({
 
   title: {
     fontSize: 18,
-    textAlign: 'center'
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
