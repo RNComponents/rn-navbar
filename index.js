@@ -47,9 +47,10 @@ module.exports = React.createClass({
           [styles.navbar,
             {backgroundColor:this.props.barTintColor,height: this.props.statusbarPadding ? 59 : 39},
             this.props.statusbarPadding ? { paddingTop: STATUS_BAR_HEIGHT }:{}]}>
-        <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
-          <View style={[styles.icon, {borderColor:this.props.tintColor}]} />
-        </TouchableOpacity>
+        {!this.props.backIconHidden ?
+          <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
+            <View style={[styles.icon, {borderColor:this.props.tintColor}]} />
+          </TouchableOpacity> : null}
         <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
         {this.props.actionName ?
           <TouchableOpacity style={styles.actionBtn} onPress={this.props.actionFunc.bind(this)}>
