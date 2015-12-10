@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.16.0",
-    "rn-navbar": "^0.1.1"
+    "rn-navbar": "^0.2.1"
   }
 }

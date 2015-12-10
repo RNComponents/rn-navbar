@@ -18,7 +18,7 @@ var RNNavbar = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        <NavBar actionName="Submit" actionFunc={()=>{console.log('act');}} />
+        <NavBar />
       </View>
     );
   }
