@@ -38,7 +38,23 @@ backFunc  | back function | `()=>{console.log('press back'); }` |
 tintColor | color of the button of the navbar | `#777` |
 titleTextColor | title color of the navbar | `#333` |
 barTintColor | background color of the navbar | `white` |
-statusbarPadding | add a padding for statusbar or not | `false` |
+actionName | right action text | |
+actionFunc | right action function | |
+statusbarPadding | add a padding for statusbar or not | `true` |
+
+## Example
+
+[RNNavbar](./example/RNNavbar)
+
+## Screenshot
+
+- Default NavBar
+
+<img width="50%" src="screenshot/default.png" />
+
+- With Action button
+
+<img width="50%" src="screenshot/submit.png" />
 
 ## License
 
