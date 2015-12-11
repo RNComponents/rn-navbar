@@ -46,7 +46,6 @@ module.exports = React.StyleSheet.create({
   },
 
   actionName: {
-    fontSize: 14,
-    color: '#666'
+    fontSize: 14
   }
 });

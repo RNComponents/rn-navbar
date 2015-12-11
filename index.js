@@ -23,6 +23,7 @@ module.exports = React.createClass({
     barTintColor: PropTypes.string,
     actionName: PropTypes.string,
     actionFunc: PropTypes.func,
+    actionTextColor: PropTypes.string,
     backIconHidden: PropTypes.bool,
     statusbarPadding: PropTypes.bool
   },
@@ -36,6 +37,7 @@ module.exports = React.createClass({
       barTintColor: 'white',
       actionName: '',
       actionFunc () {},
+      actionTextColor: '#666',
       backIconHidden: false,
       statusbarPadding: true
     }
@@ -54,7 +56,7 @@ module.exports = React.createClass({
         <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
         {this.props.actionName ?
           <TouchableOpacity style={styles.actionBtn} onPress={this.props.actionFunc.bind(this)}>
-            <Text style={styles.actionName}>{this.props.actionName}</Text>
+            <Text style={[styles.actionName, { color: this.props.actionTextColor }]}>{this.props.actionName}</Text>
           </TouchableOpacity> : null}
       </View>
     );
