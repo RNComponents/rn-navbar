@@ -40,6 +40,8 @@ titleTextColor | title color of the navbar | `#333` |
 barTintColor | background color of the navbar | `white` |
 actionName | right action text | |
 actionFunc | right action function | |
+actionTextColor | color of action text | `#666` |
+backIconHidden | hide the backIcon or not | `false` |
 statusbarPadding | add a padding for statusbar or not | `true` |
 
 ## Example
