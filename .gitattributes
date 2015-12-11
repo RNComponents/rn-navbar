@@ -1,0 +1,4 @@
+*.m linguist-language=Text
+*.h linguist-language=Text
+*.java linguist-language=Text
+*.gradle linguist-language=Text
