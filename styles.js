@@ -8,8 +8,6 @@ module.exports = React.StyleSheet.create({
   navbar: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: '#d4d4d4',
-    borderBottomWidth: 0.5,
     height: HEIGHT
   },
 
