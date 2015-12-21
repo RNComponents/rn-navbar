@@ -42,6 +42,12 @@ module.exports = React.StyleSheet.create({
     bottom: 12
   },
 
+  backBtn: {
+    position: 'absolute',
+    left: 10,
+    bottom: 12
+  },
+
   actionName: {
     fontSize: 14
   }

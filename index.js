@@ -24,17 +24,19 @@ module.exports = React.createClass({
     actionName: PropTypes.string,
     actionFunc: PropTypes.func,
     actionTextColor: PropTypes.string,
-    backIconHidden: PropTypes.bool,
+    backHidden: PropTypes.bool,
     statusbarPadding: PropTypes.bool,
     backColor: PropTypes.string,
     barBottomColor: PropTypes.string,
     barBottomThickness PropTypes.number,
+    backIcon: PropTypes.bool,
+    backName: PropTypes.string,
   },
 
   getDefaultProps () {
     return {
       title: 'title',
-      backFunc () { console.log('press back'); },
+      backFunc () {},
       tintColor: '#777',
       backColor: '#777',
       titleTextColor: '#333',
@@ -42,9 +44,9 @@ module.exports = React.createClass({
       actionName: '',
       actionFunc () {},
       actionTextColor: '#666',
+      backHidden: false,
       backIcon: true,
       backName: 'back',
-      backHidden: false,
       backTextColor: '#666'
       statusbarPadding: true,
       barBottomColor: '#d4d4d4',
@@ -65,21 +67,20 @@ module.exports = React.createClass({
             this.props.statusbarPadding ? { paddingTop: STATUS_BAR_HEIGHT } : {}]}>
         {
           !this.props.backHidden ? (
-            this.props.backIcon ?
-            <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
-              <View style={[styles.icon, {borderColor:this.props.backColor}]} />
-            </TouchableOpacity> : (
-              <Text style={[styles.backBtn, {color: this.props.backTextColor}]}>
-                this.props.backName
-              </Text>
-            )
+            <TouchableOpacity style={this.props.backIcon ? styles.iconWrapper : styles.backBtn} onPress={this.props.backFunc}>
+              this.props.backIcon ?
+                ( <View style={[styles.icon, {borderColor:this.props.backColor}]} /> ) :
+                ( <Text style={[styles.actionName, {color: this.props.backTextColor}]}>{this.props.backName}</Text> )
+            </TouchableOpacity>
           ) : null
         }
         <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
-        {this.props.actionName ?
+        {
+          this.props.actionName ?
           <TouchableOpacity style={styles.actionBtn} onPress={this.props.actionFunc.bind(this)}>
             <Text style={[styles.actionName, { color: this.props.actionTextColor }]}>{this.props.actionName}</Text>
-          </TouchableOpacity> : null}
+          </TouchableOpacity> : null
+        }
       </View>
     );
   }
