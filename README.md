@@ -35,6 +35,7 @@ module.exports = React.createClass({
 ------|-------------|----------|-----------
 title | navbar title  | title   |
 backFunc  | back function | `()=>{console.log('press back'); }` |
+backColor | back button color | `#777` |
 tintColor | color of the button of the navbar | `#777` |
 titleTextColor | title color of the navbar | `#333` |
 barTintColor | background color of the navbar | `white` |
@@ -43,6 +44,8 @@ actionFunc | right action function | |
 actionTextColor | color of action text | `#666` |
 backIconHidden | hide the backIcon or not | `false` |
 statusbarPadding | add a padding for statusbar or not | `true` |
+barBottomColor | add a color for the bottom border | `#d4d4d4` |
+barBottomThickness | add a thickness to the bottom border | `0.5` |
 
 ## Example
 
