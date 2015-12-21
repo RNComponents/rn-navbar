@@ -42,7 +42,10 @@ module.exports = React.createClass({
       actionName: '',
       actionFunc () {},
       actionTextColor: '#666',
-      backIconHidden: false,
+      backIcon: true,
+      backName: 'back',
+      backHidden: false,
+      backTextColor: '#666'
       statusbarPadding: true,
       barBottomColor: '#d4d4d4',
       barBottomThickness: 0.5
@@ -60,10 +63,18 @@ module.exports = React.createClass({
               borderBottomWidth: this.props.barBottomThickness,
             },
             this.props.statusbarPadding ? { paddingTop: STATUS_BAR_HEIGHT } : {}]}>
-        {!this.props.backIconHidden ?
-          <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
-            <View style={[styles.icon, {borderColor:this.props.backColor}]} />
-          </TouchableOpacity> : null}
+        {
+          !this.props.backHidden ? (
+            this.props.backIcon ?
+            <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
+              <View style={[styles.icon, {borderColor:this.props.backColor}]} />
+            </TouchableOpacity> : (
+              <Text style={[styles.backBtn, {color: this.props.backTextColor}]}>
+                this.props.backName
+              </Text>
+            )
+          ) : null
+        }
         <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
         {this.props.actionName ?
           <TouchableOpacity style={styles.actionBtn} onPress={this.props.actionFunc.bind(this)}>
