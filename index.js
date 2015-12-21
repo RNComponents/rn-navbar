@@ -1,6 +1,4 @@
 'use strict';
-
-// Module dependencies
 let React = require('react-native');
 let styles = require('./styles');
 
@@ -28,7 +26,7 @@ module.exports = React.createClass({
     statusbarPadding: PropTypes.bool,
     backColor: PropTypes.string,
     barBottomColor: PropTypes.string,
-    barBottomThickness PropTypes.number,
+    barBottomThickness: PropTypes.number,
     backIcon: PropTypes.bool,
     backName: PropTypes.string,
   },
@@ -47,11 +45,11 @@ module.exports = React.createClass({
       backHidden: false,
       backIcon: true,
       backName: 'back',
-      backTextColor: '#666'
+      backTextColor: '#666',
       statusbarPadding: true,
       barBottomColor: '#d4d4d4',
-      barBottomThickness: 0.5
-    }
+      barBottomThickness: 0.5,
+    };
   },
 
   render () {
@@ -68,9 +66,11 @@ module.exports = React.createClass({
         {
           !this.props.backHidden ? (
             <TouchableOpacity style={this.props.backIcon ? styles.iconWrapper : styles.backBtn} onPress={this.props.backFunc}>
-              this.props.backIcon ?
-                ( <View style={[styles.icon, {borderColor:this.props.backColor}]} /> ) :
-                ( <Text style={[styles.actionName, {color: this.props.backTextColor}]}>{this.props.backName}</Text> )
+              {
+                this.props.backIcon ?
+                  ( <View style={[styles.icon, {borderColor:this.props.backColor}]} /> ) :
+                  ( <Text style={[styles.actionName, {color: this.props.backTextColor}]}>{this.props.backName}</Text> )
+              }
             </TouchableOpacity>
           ) : null
         }
