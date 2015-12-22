@@ -1,4 +1,6 @@
 'use strict';
+
+// Module dependencies
 let React = require('react-native');
 let styles = require('./styles');
 
@@ -10,6 +12,7 @@ let {
 } = React;
 
 const STATUS_BAR_HEIGHT = 20;
+const NAV_BAR_HEIGHT = 39;
 
 module.exports = React.createClass({
 
@@ -57,22 +60,23 @@ module.exports = React.createClass({
       <View style={
           [styles.navbar,
             {
-              backgroundColor:this.props.barTintColor,
-              height: (this.props.statusbarPadding ? 59 : 39),
+              backgroundColor: this.props.barTintColor,
+              height: this.props.statusbarPadding ? NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT : NAV_BAR_HEIGHT,
               borderColor: this.props.barBottomColor,
               borderBottomWidth: this.props.barBottomThickness,
             },
             this.props.statusbarPadding ? { paddingTop: STATUS_BAR_HEIGHT } : {}]}>
         {
-          !this.props.backHidden ? (
-            <TouchableOpacity style={this.props.backIcon ? styles.iconWrapper : styles.backBtn} onPress={this.props.backFunc}>
+          !this.props.backHidden ?
+            <TouchableOpacity
+              style={this.props.backIcon ? styles.iconWrapper : styles.backBtn}
+              onPress={this.props.backFunc}>
               {
                 this.props.backIcon ?
-                  ( <View style={[styles.icon, {borderColor:this.props.backColor}]} /> ) :
-                  ( <Text style={[styles.actionName, {color: this.props.backColor}]}>{this.props.backName}</Text> )
+                  <View style={[styles.icon, {borderColor:this.props.backColor}]} />:
+                  <Text style={[styles.actionName, {color: this.props.backColor}]}>{this.props.backName}</Text>
               }
-            </TouchableOpacity>
-          ) : null
+            </TouchableOpacity> : null
         }
         <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
         {
