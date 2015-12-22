@@ -1,6 +1,4 @@
 'use strict';
-
-// Module dependencies
 let React = require('react-native');
 let styles = require('./styles');
 
@@ -24,40 +22,65 @@ module.exports = React.createClass({
     actionName: PropTypes.string,
     actionFunc: PropTypes.func,
     actionTextColor: PropTypes.string,
-    backIconHidden: PropTypes.bool,
-    statusbarPadding: PropTypes.bool
+    backHidden: PropTypes.bool,
+    statusbarPadding: PropTypes.bool,
+    backColor: PropTypes.string,
+    barBottomColor: PropTypes.string,
+    barBottomThickness: PropTypes.number,
+    backIcon: PropTypes.bool,
+    backName: PropTypes.string,
   },
 
   getDefaultProps () {
     return {
       title: 'title',
-      backFunc () { console.log('press back'); },
+      backFunc () {},
       tintColor: '#777',
+      backColor: '#777',
       titleTextColor: '#333',
       barTintColor: 'white',
       actionName: '',
       actionFunc () {},
       actionTextColor: '#666',
-      backIconHidden: false,
-      statusbarPadding: true
-    }
+      backHidden: false,
+      backIcon: true,
+      backName: 'back',
+      backTextColor: '#666',
+      statusbarPadding: true,
+      barBottomColor: '#d4d4d4',
+      barBottomThickness: 0.5,
+    };
   },
 
   render () {
     return (
       <View style={
           [styles.navbar,
-            {backgroundColor:this.props.barTintColor,height: this.props.statusbarPadding ? 59 : 39},
-            this.props.statusbarPadding ? { paddingTop: STATUS_BAR_HEIGHT }:{}]}>
-        {!this.props.backIconHidden ?
-          <TouchableOpacity style={styles.iconWrapper} onPress={this.props.backFunc}>
-            <View style={[styles.icon, {borderColor:this.props.tintColor}]} />
-          </TouchableOpacity> : null}
+            {
+              backgroundColor:this.props.barTintColor,
+              height: (this.props.statusbarPadding ? 59 : 39),
+              borderColor: this.props.barBottomColor,
+              borderBottomWidth: this.props.barBottomThickness,
+            },
+            this.props.statusbarPadding ? { paddingTop: STATUS_BAR_HEIGHT } : {}]}>
+        {
+          !this.props.backHidden ? (
+            <TouchableOpacity style={this.props.backIcon ? styles.iconWrapper : styles.backBtn} onPress={this.props.backFunc}>
+              {
+                this.props.backIcon ?
+                  ( <View style={[styles.icon, {borderColor:this.props.backColor}]} /> ) :
+                  ( <Text style={[styles.actionName, {color: this.props.backColor}]}>{this.props.backName}</Text> )
+              }
+            </TouchableOpacity>
+          ) : null
+        }
         <Text style={[styles.title, {color:this.props.titleTextColor}]}>{this.props.title}</Text>
-        {this.props.actionName ?
+        {
+          this.props.actionName ?
           <TouchableOpacity style={styles.actionBtn} onPress={this.props.actionFunc.bind(this)}>
             <Text style={[styles.actionName, { color: this.props.actionTextColor }]}>{this.props.actionName}</Text>
-          </TouchableOpacity> : null}
+          </TouchableOpacity> : null
+        }
       </View>
     );
   }
